@@ -1,0 +1,697 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Горный велосипед Forward Sporting SX 27.5",
+      "sku": "BK-001",
+      "category_id": 1,
+      "category": "Велосипеды",
+      "actual_cost": 13200,
+      "selling_price": 18950,
+      "stock_quantity": 3,
+      "photo": "demo_bk001.svg",
+      "created_at": "2026-08-13T17:23:46"
+    },
+    {
+      "id": 2,
+      "name": "Горный велосипед Stels Navigator 500 MD 26",
+      "sku": "BK-002",
+      "category_id": 1,
+      "category": "Велосипеды",
+      "actual_cost": 14800,
+      "selling_price": 20500,
+      "stock_quantity": 4,
+      "photo": "demo_bk002.svg",
+      "created_at": "2026-08-13T17:23:46"
+    },
+    {
+      "id": 3,
+      "name": "Горный велосипед Benort Raptor 27.5",
+      "sku": "BK-003",
+      "category_id": 1,
+      "category": "Велосипеды",
+      "actual_cost": 24500,
+      "selling_price": 33950,
+      "stock_quantity": 2,
+      "photo": "demo_bk003.svg",
+      "created_at": "2026-08-13T17:23:46"
+    },
+    {
+      "id": 4,
+      "name": "Детский велосипед Stels Pilot 850 V 26",
+      "sku": "BK-004",
+      "category_id": 1,
+      "category": "Велосипеды",
+      "actual_cost": 12800,
+      "selling_price": 18590,
+      "stock_quantity": 5,
+      "photo": "demo_bk004.svg",
+      "created_at": "2026-08-13T17:23:46"
+    },
+    {
+      "id": 5,
+      "name": "Горный велосипед Cube Attention 29",
+      "sku": "BK-005",
+      "category_id": 1,
+      "category": "Велосипеды",
+      "actual_cost": 42000,
+      "selling_price": 56990,
+      "stock_quantity": 2,
+      "photo": "demo_bk005.svg",
+      "created_at": "2026-08-13T17:23:46"
+    },
+    {
+      "id": 6,
+      "name": "Горный велосипед Foxx Aragon 27.5",
+      "sku": "BK-006",
+      "category_id": 1,
+      "category": "Велосипеды",
+      "actual_cost": 18500,
+      "selling_price": 25990,
+      "stock_quantity": 3,
+      "photo": "demo_bk006.svg",
+      "created_at": "2026-08-13T17:23:46"
+    },
+    {
+      "id": 7,
+      "name": "Женский велосипед Forward Sporty 27.5",
+      "sku": "BK-007",
+      "category_id": 1,
+      "category": "Велосипеды",
+      "actual_cost": 15200,
+      "selling_price": 21500,
+      "stock_quantity": 2,
+      "photo": "demo_bk007.svg",
+      "created_at": "2026-08-13T17:23:46"
+    },
+    {
+      "id": 8,
+      "name": "Детский велосипед Royal Baby 16 Space",
+      "sku": "BK-008",
+      "category_id": 1,
+      "category": "Велосипеды",
+      "actual_cost": 6800,
+      "selling_price": 9990,
+      "stock_quantity": 7,
+      "photo": "demo_bk008.svg",
+      "created_at": "2026-08-13T17:23:46"
+    },
+    {
+      "id": 9,
+      "name": "Подростковый велосипед Stark Storm 24",
+      "sku": "BK-009",
+      "category_id": 1,
+      "category": "Велосипеды",
+      "actual_cost": 11500,
+      "selling_price": 16500,
+      "stock_quantity": 4,
+      "photo": "demo_bk009.svg",
+      "created_at": "2026-08-13T17:23:46"
+    },
+    {
+      "id": 10,
+      "name": "Шоссейный велосипед Merida Scultura 100",
+      "sku": "BK-010",
+      "category_id": 1,
+      "category": "Велосипеды",
+      "actual_cost": 48000,
+      "selling_price": 64990,
+      "stock_quantity": 1,
+      "photo": "demo_bk010.svg",
+      "created_at": "2026-08-13T17:23:46"
+    },
+    {
+      "id": 11,
+      "name": "Электросамокат Ninebot KickScooter E2 Plus",
+      "sku": "EL-001",
+      "category_id": 2,
+      "category": "Электротранспорт",
+      "actual_cost": 28500,
+      "selling_price": 34990,
+      "stock_quantity": 3,
+      "photo": "demo_el001.svg",
+      "created_at": "2026-08-13T17:23:46"
+    },
+    {
+      "id": 12,
+      "name": "Электровелосипед Haibike HardSeven 4",
+      "sku": "EL-002",
+      "category_id": 2,
+      "category": "Электротранспорт",
+      "actual_cost": 185000,
+      "selling_price": 239990,
+      "stock_quantity": 1,
+      "photo": "demo_el002.svg",
+      "created_at": "2026-08-13T17:23:46"
+    },
+    {
+      "id": 13,
+      "name": "Электросамокат Eltreco Cruiser 10",
+      "sku": "EL-003",
+      "category_id": 2,
+      "category": "Электротранспорт",
+      "actual_cost": 32000,
+      "selling_price": 42990,
+      "stock_quantity": 2,
+      "photo": "demo_el003.svg",
+      "created_at": "2026-08-13T17:23:46"
+    },
+    {
+      "id": 14,
+      "name": "Электровелосипед Stark E-City 28",
+      "sku": "EL-004",
+      "category_id": 2,
+      "category": "Электротранспорт",
+      "actual_cost": 68000,
+      "selling_price": 89990,
+      "stock_quantity": 1,
+      "photo": "demo_el004.svg",
+      "created_at": "2026-08-13T17:23:46"
+    },
+    {
+      "id": 15,
+      "name": "Камера Kenda 26x1.95",
+      "sku": "CP-001",
+      "category_id": 3,
+      "category": "Комплектующие",
+      "actual_cost": 280,
+      "selling_price": 490,
+      "stock_quantity": 30,
+      "photo": "demo_cp001.svg",
+      "created_at": "2026-08-13T17:23:46"
+    },
+    {
+      "id": 16,
+      "name": "Покрышка Schwalbe Smart Sam 27.5x2.25",
+      "sku": "CP-002",
+      "category_id": 3,
+      "category": "Комплектующие",
+      "actual_cost": 1800,
+      "selling_price": 2990,
+      "stock_quantity": 12,
+      "photo": "demo_cp002.svg",
+      "created_at": "2026-08-13T17:23:46"
+    },
+    {
+      "id": 17,
+      "name": "Тормозные колодки Shimano B01S",
+      "sku": "CP-003",
+      "category_id": 3,
+      "category": "Комплектующие",
+      "actual_cost": 350,
+      "selling_price": 690,
+      "stock_quantity": 20,
+      "photo": "demo_cp003.svg",
+      "created_at": "2026-08-13T17:23:46"
+    },
+    {
+      "id": 18,
+      "name": "Цепь KMC X11 11-скор",
+      "sku": "CP-004",
+      "category_id": 3,
+      "category": "Комплектующие",
+      "actual_cost": 1200,
+      "selling_price": 1990,
+      "stock_quantity": 8,
+      "photo": "demo_cp004.svg",
+      "created_at": "2026-08-13T17:23:46"
+    },
+    {
+      "id": 19,
+      "name": "Переключатель задний Shimano Altus M2000",
+      "sku": "CP-005",
+      "category_id": 3,
+      "category": "Комплектующие",
+      "actual_cost": 2400,
+      "selling_price": 3890,
+      "stock_quantity": 5,
+      "photo": "demo_cp005.svg",
+      "created_at": "2026-08-13T17:23:46"
+    },
+    {
+      "id": 20,
+      "name": "Руль Forward Alloy 720mm",
+      "sku": "CP-006",
+      "category_id": 3,
+      "category": "Комплектующие",
+      "actual_cost": 900,
+      "selling_price": 1590,
+      "stock_quantity": 6,
+      "photo": "demo_cp006.svg",
+      "created_at": "2026-08-13T17:23:46"
+    },
+    {
+      "id": 21,
+      "name": "Седло Velo VL-3078",
+      "sku": "CP-007",
+      "category_id": 3,
+      "category": "Комплектующие",
+      "actual_cost": 650,
+      "selling_price": 1190,
+      "stock_quantity": 10,
+      "photo": "demo_cp007.svg",
+      "created_at": "2026-08-13T17:23:46"
+    },
+    {
+      "id": 22,
+      "name": "Педали Wellgo M111 алюм.",
+      "sku": "CP-008",
+      "category_id": 3,
+      "category": "Комплектующие",
+      "actual_cost": 480,
+      "selling_price": 890,
+      "stock_quantity": 14,
+      "photo": "demo_cp008.svg",
+      "created_at": "2026-08-13T17:23:46"
+    },
+    {
+      "id": 23,
+      "name": "Фонарь передний Cateye Volt 300",
+      "sku": "AC-001",
+      "category_id": 4,
+      "category": "Аксессуары",
+      "actual_cost": 2100,
+      "selling_price": 3290,
+      "stock_quantity": 9,
+      "photo": "demo_ac001.svg",
+      "created_at": "2026-08-13T17:23:46"
+    },
+    {
+      "id": 24,
+      "name": "Замок вело Kryptonite Keeper 785",
+      "sku": "AC-002",
+      "category_id": 4,
+      "category": "Аксессуары",
+      "actual_cost": 2800,
+      "selling_price": 4290,
+      "stock_quantity": 6,
+      "photo": "demo_ac002.svg",
+      "created_at": "2026-08-13T17:23:46"
+    },
+    {
+      "id": 25,
+      "name": "Велокомпьютер Sigma BC 5.16",
+      "sku": "AC-003",
+      "category_id": 4,
+      "category": "Аксессуары",
+      "actual_cost": 1400,
+      "selling_price": 2290,
+      "stock_quantity": 8,
+      "photo": "demo_ac003.svg",
+      "created_at": "2026-08-13T17:23:46"
+    },
+    {
+      "id": 26,
+      "name": "Насос ручной Lezyne Sport Drive HP",
+      "sku": "AC-004",
+      "category_id": 4,
+      "category": "Аксессуары",
+      "actual_cost": 950,
+      "selling_price": 1590,
+      "stock_quantity": 11,
+      "photo": "demo_ac004.svg",
+      "created_at": "2026-08-13T17:23:46"
+    },
+    {
+      "id": 27,
+      "name": "Флягодержатель Elite Custom Race",
+      "sku": "AC-005",
+      "category_id": 4,
+      "category": "Аксессуары",
+      "actual_cost": 380,
+      "selling_price": 690,
+      "stock_quantity": 15,
+      "photo": "demo_ac005.svg",
+      "created_at": "2026-08-13T17:23:46"
+    },
+    {
+      "id": 28,
+      "name": "Крылья SKS Shockboard 26-29",
+      "sku": "AC-006",
+      "category_id": 4,
+      "category": "Аксессуары",
+      "actual_cost": 750,
+      "selling_price": 1290,
+      "stock_quantity": 10,
+      "photo": "demo_ac006.svg",
+      "created_at": "2026-08-13T17:23:46"
+    },
+    {
+      "id": 29,
+      "name": "Зеркало вело Busch+Müller Cycle Star",
+      "sku": "AC-007",
+      "category_id": 4,
+      "category": "Аксессуары",
+      "actual_cost": 850,
+      "selling_price": 1490,
+      "stock_quantity": 7,
+      "photo": "demo_ac007.svg",
+      "created_at": "2026-08-13T17:23:46"
+    },
+    {
+      "id": 30,
+      "name": "Велошлем Giro Tremor M",
+      "sku": "EQ-001",
+      "category_id": 5,
+      "category": "Экипировка",
+      "actual_cost": 2400,
+      "selling_price": 3900,
+      "stock_quantity": 7,
+      "photo": "demo_eq001.svg",
+      "created_at": "2026-08-13T17:23:46"
+    },
+    {
+      "id": 31,
+      "name": "Перчатки вело Fox Dirtpaw L",
+      "sku": "EQ-002",
+      "category_id": 5,
+      "category": "Экипировка",
+      "actual_cost": 1500,
+      "selling_price": 2450,
+      "stock_quantity": 12,
+      "photo": "demo_eq002.svg",
+      "created_at": "2026-08-13T17:23:46"
+    },
+    {
+      "id": 32,
+      "name": "Очки вело Uvex Sportstyle 231",
+      "sku": "EQ-003",
+      "category_id": 5,
+      "category": "Экипировка",
+      "actual_cost": 2800,
+      "selling_price": 4490,
+      "stock_quantity": 5,
+      "photo": "demo_eq003.svg",
+      "created_at": "2026-08-13T17:23:46"
+    },
+    {
+      "id": 33,
+      "name": "Велорюкзак Deuter Compact EXP 12",
+      "sku": "EQ-004",
+      "category_id": 5,
+      "category": "Экипировка",
+      "actual_cost": 4500,
+      "selling_price": 6990,
+      "stock_quantity": 4,
+      "photo": "demo_eq004.svg",
+      "created_at": "2026-08-13T17:23:46"
+    },
+    {
+      "id": 34,
+      "name": "Велошлем Abus Hyban 2.0 M",
+      "sku": "EQ-005",
+      "category_id": 5,
+      "category": "Экипировка",
+      "actual_cost": 3200,
+      "selling_price": 4990,
+      "stock_quantity": 6,
+      "photo": "demo_eq005.svg",
+      "created_at": "2026-08-13T17:23:46"
+    },
+    {
+      "id": 35,
+      "name": "Замена камеры (услуга)",
+      "sku": "SV-001",
+      "category_id": 6,
+      "category": "Услуги",
+      "actual_cost": 100,
+      "selling_price": 500,
+      "stock_quantity": 0,
+      "photo": "demo_sv001.svg",
+      "created_at": "2026-08-13T17:23:46"
+    },
+    {
+      "id": 36,
+      "name": "Полное ТО велосипеда (услуга)",
+      "sku": "SV-002",
+      "category_id": 6,
+      "category": "Услуги",
+      "actual_cost": 400,
+      "selling_price": 1500,
+      "stock_quantity": 0,
+      "photo": "demo_sv002.svg",
+      "created_at": "2026-08-13T17:23:46"
+    },
+    {
+      "id": 37,
+      "name": "Настройка переключателя (услуга)",
+      "sku": "SV-003",
+      "category_id": 6,
+      "category": "Услуги",
+      "actual_cost": 150,
+      "selling_price": 600,
+      "stock_quantity": 0,
+      "photo": "demo_sv003.svg",
+      "created_at": "2026-08-13T17:23:46"
+    }
+  ],
+  "clients": [
+    {
+      "id": 1,
+      "name": "Велоцентр (собственный магазин)",
+      "phone": "+7 (920) 497-47-87",
+      "created_at": "2026-08-12T10:50:06",
+      "order_number": "",
+      "comment": ""
+    },
+    {
+      "id": 2,
+      "name": "Иван Петров",
+      "phone": "+7 900 111-22-33",
+      "created_at": "2026-08-13T17:23:46",
+      "order_number": "",
+      "comment": ""
+    },
+    {
+      "id": 3,
+      "name": "Ольга Смирнова",
+      "phone": "+7 900 222-33-44",
+      "created_at": "2026-08-13T17:23:46",
+      "order_number": "",
+      "comment": ""
+    },
+    {
+      "id": 4,
+      "name": "Дмитрий Кузнецов",
+      "phone": "+7 900 333-44-55",
+      "created_at": "2026-08-13T17:23:46",
+      "order_number": "",
+      "comment": ""
+    },
+    {
+      "id": 5,
+      "name": "Мария Иванова",
+      "phone": "+7 900 444-55-66",
+      "created_at": "2026-08-13T17:23:46",
+      "order_number": "",
+      "comment": ""
+    },
+    {
+      "id": 6,
+      "name": "Алексей Соколов",
+      "phone": "+7 900 555-66-77",
+      "created_at": "2026-08-13T17:23:46",
+      "order_number": "",
+      "comment": ""
+    },
+    {
+      "id": 7,
+      "name": "Наталья Павлова",
+      "phone": "+7 900 666-77-88",
+      "created_at": "2026-08-13T17:23:46",
+      "order_number": "",
+      "comment": ""
+    },
+    {
+      "id": 8,
+      "name": "Сергей Морозов",
+      "phone": "+7 900 777-88-99",
+      "created_at": "2026-08-13T17:23:46",
+      "order_number": "",
+      "comment": ""
+    },
+    {
+      "id": 9,
+      "name": "Екатерина Волкова",
+      "phone": "+7 900 888-99-00",
+      "created_at": "2026-08-13T17:23:46",
+      "order_number": "",
+      "comment": ""
+    },
+    {
+      "id": 10,
+      "name": "Андрей Лебедев",
+      "phone": "+7 900 999-00-11",
+      "created_at": "2026-08-13T17:23:46",
+      "order_number": "",
+      "comment": ""
+    },
+    {
+      "id": 11,
+      "name": "Анна Новикова",
+      "phone": "+7 900 000-11-22",
+      "created_at": "2026-08-13T17:23:46",
+      "order_number": "",
+      "comment": ""
+    }
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "description": "Замена камеры заднего колеса",
+      "client_id": 2,
+      "due_date": "2026-08-14",
+      "status": "В работе",
+      "created_at": "2026-08-13T17:23:46"
+    },
+    {
+      "id": 2,
+      "description": "Полное техобслуживание перед продажей",
+      "client_id": 3,
+      "due_date": "2026-08-16",
+      "status": "Новая",
+      "created_at": "2026-08-13T17:23:46"
+    },
+    {
+      "id": 3,
+      "description": "Подобрать горный велосипед 27.5 в наличии",
+      "client_id": 4,
+      "due_date": "2026-08-15",
+      "status": "В работе",
+      "created_at": "2026-08-13T17:23:46"
+    },
+    {
+      "id": 4,
+      "description": "Настроить переключатель Shimano Altus",
+      "client_id": 6,
+      "due_date": "2026-08-14",
+      "status": "Ожидает ответа",
+      "created_at": "2026-08-13T17:23:46"
+    },
+    {
+      "id": 5,
+      "description": "Замена спицы и правка колеса",
+      "client_id": 7,
+      "due_date": "2026-08-17",
+      "status": "Новая",
+      "created_at": "2026-08-13T17:23:46"
+    },
+    {
+      "id": 6,
+      "description": "Заказ электровелосипеда Haibike HardSeven",
+      "client_id": 9,
+      "due_date": "2026-08-20",
+      "status": "В работе",
+      "created_at": "2026-08-13T17:23:46"
+    },
+    {
+      "id": 7,
+      "description": "Замена тормозных колодок Shimano",
+      "client_id": 10,
+      "due_date": "2026-08-15",
+      "status": "Новая",
+      "created_at": "2026-08-13T17:23:46"
+    },
+    {
+      "id": 8,
+      "description": "Подобрать детский велосипед Royal Baby (6 лет)",
+      "client_id": 11,
+      "due_date": "2026-08-16",
+      "status": "Ожидает ответа",
+      "created_at": "2026-08-13T17:23:46"
+    },
+    {
+      "id": 9,
+      "description": "Перезвонить по поводу велошлема Giro Tremor",
+      "client_id": 5,
+      "due_date": "2026-08-14",
+      "status": "Новая",
+      "created_at": "2026-08-13T17:23:46"
+    },
+    {
+      "id": 10,
+      "description": "Подготовить Cube Attention к примерке",
+      "client_id": 8,
+      "due_date": "2026-08-15",
+      "status": "Новая",
+      "created_at": "2026-08-13T17:23:46"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Велосипеды"
+    },
+    {
+      "id": 2,
+      "name": "Электротранспорт"
+    },
+    {
+      "id": 3,
+      "name": "Комплектующие"
+    },
+    {
+      "id": 4,
+      "name": "Аксессуары"
+    },
+    {
+      "id": 5,
+      "name": "Экипировка"
+    },
+    {
+      "id": 6,
+      "name": "Услуги"
+    }
+  ],
+  "auth": {
+    "username": "velocentr",
+    "salt": "c7e065b34047399dfe77aa0f16dc6eac",
+    "password_hash": "47adf45347b9fe632c58bb54e321881a284f33695fbdf9c899457f20494bc886"
+  },
+  "calls": [
+    {
+      "id": 1,
+      "client_id": 5,
+      "date": "2026-08-12",
+      "result": "Не дозвонился",
+      "note": "Перезвонить после 18:00, вопрос про велошлем Giro Tremor",
+      "created_at": "2026-08-13T17:23:46"
+    },
+    {
+      "id": 2,
+      "client_id": 8,
+      "date": "2026-08-13",
+      "result": "Назначена встреча",
+      "note": "Придёт на примерку Cube Attention в субботу в 11:00",
+      "created_at": "2026-08-13T17:23:46"
+    },
+    {
+      "id": 3,
+      "client_id": 11,
+      "date": "2026-08-11",
+      "result": "Консультация",
+      "note": "Спрашивала про детские Royal Baby для ребёнка 6 лет",
+      "created_at": "2026-08-13T17:23:46"
+    },
+    {
+      "id": 4,
+      "client_id": 2,
+      "date": "2026-08-12",
+      "result": "Не дозвонился",
+      "note": "Звонил насчёт записи на замену камеры Kenda",
+      "created_at": "2026-08-13T17:23:46"
+    },
+    {
+      "id": 5,
+      "client_id": 9,
+      "date": "2026-08-10",
+      "result": "Оформлен заказ",
+      "note": "Интересуется рассрочкой на электровелосипед Haibike",
+      "created_at": "2026-08-13T17:23:46"
+    }
+  ],
+  "demo_seeded": true,
+  "demo": {
+    "activated": "2026-08-13T17:54:34"
+  }
+}
