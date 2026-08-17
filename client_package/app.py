@@ -1337,17 +1337,15 @@ def inject_styles():
     footer {{ display: none !important; }}
     .block-container > div:first-child {{ padding-top: 0 !important; }}
 
-    /* Колокольчик — компактный, прижат влево */
+    /* Компактная кнопка уведомлений */
     [data-testid="stSidebar"] button[kind="secondary"]:first-of-type {{
-        background: rgba(255,255,255,0.08) !important;
-        border: 1px solid rgba(255,255,255,0.15) !important;
+        background: rgba(255,255,255,0.06) !important;
+        border: 1px solid rgba(255,255,255,0.12) !important;
         border-radius: 4px !important;
-        font-size: 0.8rem !important;
+        padding: 2px 8px !important;
+        font-size: 0.75rem !important;
         min-height: 28px !important;
-        text-align: left !important;
-        justify-content: flex-start !important;
-        padding-left: 8px !important;
-        color: #e2e8f0 !important;
+        color: #94a3b8 !important;
     }}
     h1 {{ color: {txt}; font-weight: 800; letter-spacing: -0.02em; }}
     h2, h3 {{ color: {txt}; font-weight: 700; }}
@@ -1409,7 +1407,7 @@ def inject_styles():
 
 
 def render_notifications():
-    """Уведомления — компактный колокольчик и кликабельные задачи."""
+    """Уведомления — колокольчик с бейджем и скроллируемым списком задач."""
     today = datetime.now().date()
     urgent = [t for t in data.get("tasks", [])
               if t.get("status") not in DONE_STATUSES
@@ -1422,28 +1420,38 @@ def render_notifications():
     if count == 0:
         return
 
-    icon = chr(128276)  # 🔔
-    arrow = " v" if is_open else " >"
-    if st.sidebar.button(f"  {icon} {count}{arrow}", key="notif_toggle", use_container_width=True):
+    # Колокольчик с бейджем
+    bell_label = f"  {count} " if not is_open else "  скрыть "
+    if st.sidebar.button(bell_label, key="notif_toggle", use_container_width=True):
         st.session_state["notif_open"] = not is_open
         st.rerun()
 
+    # Скроллируемый список задач — 3 видно, скролл вниз
     if is_open:
+        tasks_html = '<div style="max-height:180px; overflow-y:auto; padding:2px 0;">'
         for t in urgent[:10]:
             due = parse_date(t.get("due_date"))
-            desc = t.get('description', '')[:25]
+            desc = t.get('description', '')[:28]
             tid = t.get("id")
             client = get_client_name(t.get("client_id"))
             if due and due < today:
+                color = "#ef4444"
                 tag = "!"
             elif due and due == today:
+                color = "#f59e0b"
                 tag = ">"
             else:
+                color = "#3b82f6"
                 tag = "~"
-            if st.sidebar.button(f"[{tag}] {desc}", key=f"notif_{tid}", use_container_width=True):
-                st.session_state["edit_task_id"] = tid
-                st.session_state["main_menu"] = "CRM"
-                st.rerun()
+            tasks_html += f'''
+            <a href="#" onclick="window.parent.document.querySelector('[data-testid=\"stSidebar\"]').click(); return false;"
+               style="display:block; background:rgba(255,255,255,0.06); border-left:3px solid {color};
+                      border-radius:4px; padding:5px 7px; margin-bottom:3px; text-decoration:none; cursor:pointer;">
+                <b style="color:#e2e8f0; font-size:0.7rem;">[{tag}] {desc}</b><br>
+                <span style="color:#94a3b8; font-size:0.65rem;">{client} · {due.strftime("%d.%m") if due else "—"}</span>
+            </a>'''
+        tasks_html += '</div>'
+        st.sidebar.markdown(tasks_html, unsafe_allow_html=True)
 
 
 def render_sidebar():
