@@ -1389,7 +1389,7 @@ def inject_styles():
     {dark_css}
 
     @media (max-width: 768px) {{
-        .block-container {{ padding: 0.8rem 0.6rem !important; }}
+        .block-container {{ padding: 3rem 0.6rem 0.8rem 0.6rem !important; }}
         h1 {{ font-size: 1.4rem !important; }}
         h2 {{ font-size: 1.15rem !important; }}
         h3 {{ font-size: 1rem !important; }}
