@@ -1605,6 +1605,7 @@ def render_quick_add():
         st.rerun()
 
 
+# ВелоЦентр CRM v1.4
 def main():
     st.set_page_config(page_title="ВелоЦентр: склад и CRM", page_icon="🚲", layout="wide")
     load_data()
