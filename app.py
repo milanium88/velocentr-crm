@@ -1330,12 +1330,9 @@ def inject_styles():
     .stApp {{ background: {bg}; }}
     .block-container {{ padding-top: 1rem; padding-bottom: 1rem; }}
 
-    /* Скрытие шапки Streamlit (Deploy, hamburger) */
-    header[data-testid="stHeader"] {{ display: none !important; }}
-    #MainMenu {{ display: none !important; }}
+    /* Скрытие Deploy-кнопки Streamlit */
     .stDeployButton {{ display: none !important; }}
     footer {{ display: none !important; }}
-    .block-container > div:first-child {{ padding-top: 0 !important; }}
 
     /* Колокольчик — компактный, прижат влево */
     [data-testid="stSidebar"] button[kind="secondary"]:first-of-type {{
