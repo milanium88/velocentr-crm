@@ -23,7 +23,7 @@ TASK_STATUSES = ["Новая", "В работе", "Ожидает ответа",
 DONE_STATUSES = {"Завершена", "Отменена"}
 CALL_RESULTS = ["Не дозвонился", "Перезвонить", "Назначена встреча", "Оформлен заказ", "Консультация", "Отказ", "Другое"]
 SHOP_NAME = "Велоцентр"
-SHOP_PHONE = "+7 (922) 702-88-88"
+SHOP_PHONE = "+7 (920) 497-47-87"
 SHOP_ADDRESS = "Магистральная ул., 1Б, Тамбов"
 
 CATEGORY_PRESETS = {
@@ -1619,27 +1619,6 @@ def main():
 
     render_notifications()
     menu = render_sidebar()
-
-    # Мобильная навигация — кнопки в основной области
-    st.markdown("""
-    <style>
-    @media (min-width: 769px) { .mobile-nav { display: none !important; } }
-    @media (max-width: 768px) { .mobile-nav { display: block !important; } }
-    </style>
-    """, unsafe_allow_html=True)
-
-    current_menu = st.session_state.get("main_menu", "Дашборд")
-    cols = st.columns(5)
-    nav_items = ["Дашборд", "Склад", "CRM", "Категории", "Настройки"]
-    nav_keys = ["Дашборд", "Склад / Товары", "CRM", "Категории", "Настройки"]
-    for i, (label, key) in enumerate(zip(nav_items, nav_keys)):
-        with cols[i]:
-            if st.button(label, key=f"mob_nav_{i}", use_container_width=True,
-                         type="primary" if current_menu == key else "secondary"):
-                st.session_state["main_menu"] = key
-                st.rerun()
-
-    menu = st.session_state.get("main_menu", "Дашборд")
 
     # Глобальный поиск и быстрое добавление — на каждой странице
     render_global_search()
