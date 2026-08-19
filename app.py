@@ -1328,7 +1328,7 @@ def inject_styles():
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
     html, body, .block-container, .stApp, [data-testid="stSidebar"] {{ font-family: 'Inter', 'Segoe UI', sans-serif; }}
     .stApp {{ background: {bg}; }}
-    .block-container {{ padding-top: 1rem; padding-bottom: 1rem; }}
+    .block-container {{ padding-top: 3.5rem; padding-bottom: 1rem; }}
 
     /* Скрытие Deploy-кнопки Streamlit */
     .stDeployButton {{ display: none !important; }}
