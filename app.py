@@ -1326,7 +1326,7 @@ def inject_styles():
     st.markdown(f"""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-    html, body, [class*="css"] {{ font-family: 'Inter', 'Segoe UI', sans-serif; }}
+    html, body, .block-container, .stApp, [data-testid="stSidebar"] {{ font-family: 'Inter', 'Segoe UI', sans-serif; }}
     .stApp {{ background: {bg}; }}
     .block-container {{ padding-top: 1rem; padding-bottom: 1rem; }}
 
