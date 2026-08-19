@@ -25,7 +25,7 @@ if errorlevel 1 (
     if errorlevel 1 (
         echo.
         echo  Не удалось установить компоненты автоматически.
-        echo  Позвоните: +7 (920) 497-47-87
+        echo  Позвоните: +7 (922) 702-88-88
         echo.
         pause
         exit /b 1

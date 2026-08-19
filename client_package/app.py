@@ -1326,26 +1326,25 @@ def inject_styles():
     st.markdown(f"""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-    html, body, [class*="css"] {{ font-family: 'Inter', 'Segoe UI', sans-serif; }}
+    html, body, .block-container, .stApp, [data-testid="stSidebar"] {{ font-family: 'Inter', 'Segoe UI', sans-serif; }}
     .stApp {{ background: {bg}; }}
-    .block-container {{ padding-top: 1rem; padding-bottom: 1rem; }}
+    .block-container {{ padding-top: 3.5rem; padding-bottom: 1rem; }}
 
-    /* Скрытие шапки Streamlit (Deploy, hamburger) */
-    header[data-testid="stHeader"] {{ display: none !important; }}
-    #MainMenu {{ display: none !important; }}
+    /* Скрытие Deploy-кнопки Streamlit */
     .stDeployButton {{ display: none !important; }}
     footer {{ display: none !important; }}
-    .block-container > div:first-child {{ padding-top: 0 !important; }}
 
-    /* Компактная кнопка уведомлений */
+    /* Колокольчик — компактный, прижат влево */
     [data-testid="stSidebar"] button[kind="secondary"]:first-of-type {{
-        background: rgba(255,255,255,0.06) !important;
-        border: 1px solid rgba(255,255,255,0.12) !important;
+        background: rgba(255,255,255,0.08) !important;
+        border: 1px solid rgba(255,255,255,0.15) !important;
         border-radius: 4px !important;
-        padding: 2px 8px !important;
-        font-size: 0.75rem !important;
+        font-size: 0.8rem !important;
         min-height: 28px !important;
-        color: #94a3b8 !important;
+        text-align: left !important;
+        justify-content: flex-start !important;
+        padding-left: 8px !important;
+        color: #e2e8f0 !important;
     }}
     h1 {{ color: {txt}; font-weight: 800; letter-spacing: -0.02em; }}
     h2, h3 {{ color: {txt}; font-weight: 700; }}
@@ -1390,7 +1389,7 @@ def inject_styles():
     {dark_css}
 
     @media (max-width: 768px) {{
-        .block-container {{ padding: 0.8rem 0.6rem !important; }}
+        .block-container {{ padding: 3rem 0.6rem 0.8rem 0.6rem !important; }}
         h1 {{ font-size: 1.4rem !important; }}
         h2 {{ font-size: 1.15rem !important; }}
         h3 {{ font-size: 1rem !important; }}
@@ -1407,7 +1406,7 @@ def inject_styles():
 
 
 def render_notifications():
-    """Уведомления — колокольчик с бейджем и скроллируемым списком задач."""
+    """Уведомления — компактный колокольчик и кликабельные задачи."""
     today = datetime.now().date()
     urgent = [t for t in data.get("tasks", [])
               if t.get("status") not in DONE_STATUSES
@@ -1420,38 +1419,28 @@ def render_notifications():
     if count == 0:
         return
 
-    # Колокольчик с бейджем
-    bell_label = f"  {count} " if not is_open else "  скрыть "
-    if st.sidebar.button(bell_label, key="notif_toggle", use_container_width=True):
+    icon = chr(128276)  # 🔔
+    arrow = " v" if is_open else " >"
+    if st.sidebar.button(f"  {icon} {count}{arrow}", key="notif_toggle", use_container_width=True):
         st.session_state["notif_open"] = not is_open
         st.rerun()
 
-    # Скроллируемый список задач — 3 видно, скролл вниз
     if is_open:
-        tasks_html = '<div style="max-height:180px; overflow-y:auto; padding:2px 0;">'
         for t in urgent[:10]:
             due = parse_date(t.get("due_date"))
-            desc = t.get('description', '')[:28]
+            desc = t.get('description', '')[:25]
             tid = t.get("id")
             client = get_client_name(t.get("client_id"))
             if due and due < today:
-                color = "#ef4444"
                 tag = "!"
             elif due and due == today:
-                color = "#f59e0b"
                 tag = ">"
             else:
-                color = "#3b82f6"
                 tag = "~"
-            tasks_html += f'''
-            <a href="#" onclick="window.parent.document.querySelector('[data-testid=\"stSidebar\"]').click(); return false;"
-               style="display:block; background:rgba(255,255,255,0.06); border-left:3px solid {color};
-                      border-radius:4px; padding:5px 7px; margin-bottom:3px; text-decoration:none; cursor:pointer;">
-                <b style="color:#e2e8f0; font-size:0.7rem;">[{tag}] {desc}</b><br>
-                <span style="color:#94a3b8; font-size:0.65rem;">{client} · {due.strftime("%d.%m") if due else "—"}</span>
-            </a>'''
-        tasks_html += '</div>'
-        st.sidebar.markdown(tasks_html, unsafe_allow_html=True)
+            if st.sidebar.button(f"[{tag}] {desc}", key=f"notif_{tid}", use_container_width=True):
+                st.session_state["edit_task_id"] = tid
+                st.session_state["main_menu"] = "CRM"
+                st.rerun()
 
 
 def render_sidebar():
@@ -1616,6 +1605,7 @@ def render_quick_add():
         st.rerun()
 
 
+# ВелоЦентр CRM v1.4
 def main():
     st.set_page_config(page_title="ВелоЦентр: склад и CRM", page_icon="🚲", layout="wide")
     load_data()
