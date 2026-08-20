@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Шина CRM — Склад и CRM для веломагазина</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: #0b1220; color: #e2e8f0; overflow-x: hidden; }
+a { text-decoration: none; }
+
+/* Animations */
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideInLeft { from { opacity: 0; transform: translateX(-40px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes slideInRight { from { opacity: 0; transform: translateX(40px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+.animate { opacity: 0; }
+.animate.visible { animation: fadeInUp 0.8s ease forwards; }
+.animate-delay-1 { animation-delay: 0.1s; }
+.animate-delay-2 { animation-delay: 0.2s; }
+.animate-delay-3 { animation-delay: 0.3s; }
+.animate-delay-4 { animation-delay: 0.4s; }
+.animate-delay-5 { animation-delay: 0.5s; }
+
+/* Nav */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1rem 2rem;
+  background: rgba(11,18,32,0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+nav .logo { font-weight: 800; font-size: 1.3rem; }
+nav .logo span { color: #2dd4bf; }
+nav .nav-links { display: flex; align-items: center; gap: 2rem; }
+nav .nav-links a { font-size: 0.85rem; color: #94a3b8; transition: color 0.2s; }
+nav .nav-links a:hover { color: #2dd4bf; }
+nav .cta-nav {
+  background: linear-gradient(135deg, #2dd4bf, #4ade80); color: #0b1220;
+  font-weight: 700; border-radius: 8px; padding: 0.6rem 1.5rem; font-size: 0.8rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+nav .cta-nav:hover { transform: translateY(-1px); box-shadow: 0 4px 20px rgba(45,212,191,0.3); }
+
+/* Hero */
+.hero {
+  min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+  text-align: center; padding: 120px 20px 80px;
+  background: radial-gradient(ellipse at 50% 0%, rgba(45,212,191,0.08), transparent 60%);
+}
+.hero .badge { display: inline-block; background: rgba(45,212,191,0.12); color: #2dd4bf; border: 1px solid rgba(45,212,191,0.3); border-radius: 999px; padding: 6px 16px; font-size: 0.75rem; font-weight: 700; margin-bottom: 1.5rem; animation: fadeInUp 0.6s ease; }
+.hero h1 { font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 900; line-height: 1.05; max-width: 700px; margin-bottom: 1.5rem; animation: fadeInUp 0.8s ease 0.1s both; }
+.hero h1 .gradient { background: linear-gradient(135deg, #2dd4bf, #4ade80); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.hero .subtitle { font-size: clamp(1rem, 2vw, 1.25rem); color: #94a3b8; max-width: 550px; line-height: 1.5; margin-bottom: 2.5rem; animation: fadeInUp 0.8s ease 0.2s both; }
+.hero .ctas { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; animation: fadeInUp 0.8s ease 0.3s both; }
+.btn-primary {
+  background: linear-gradient(135deg, #2dd4bf, #4ade80); color: #0b1220;
+  font-weight: 700; border-radius: 10px; padding: 14px 32px; font-size: 1rem;
+  transition: transform 0.2s, box-shadow 0.2s; display: inline-flex; align-items: center; gap: 8px;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(45,212,191,0.3); }
+.btn-secondary {
+  border: 1px solid rgba(255,255,255,0.15); color: #e2e8f0;
+  font-weight: 600; border-radius: 10px; padding: 14px 32px; font-size: 1rem;
+  transition: border-color 0.2s, color 0.2s; display: inline-flex; align-items: center; gap: 8px;
+}
+.btn-secondary:hover { border-color: #2dd4bf; color: #2dd4bf; }
+.hero .meta { color: #475569; font-size: 0.8rem; margin-top: 1.5rem; animation: fadeIn 1s ease 0.5s both; }
+
+/* Sections */
+.section { padding: 100px 20px; }
+.section-title { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 900; text-align: center; margin-bottom: 1rem; }
+.section-title .gradient { background: linear-gradient(135deg, #2dd4bf, #4ade80); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.section-sub { text-align: center; color: #94a3b8; font-size: 1.1rem; margin-bottom: 4rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+
+/* Features */
+.features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: 1000px; margin: 0 auto; }
+.feature-card {
+  background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 16px; padding: 2rem; transition: transform 0.3s, border-color 0.3s;
+}
+.feature-card:hover { transform: translateY(-4px); border-color: rgba(45,212,191,0.3); }
+.feature-card .icon { font-size: 2.5rem; margin-bottom: 1rem; }
+.feature-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
+.feature-card p { color: #94a3b8; font-size: 0.9rem; line-height: 1.5; }
+
+/* Problem */
+.problem-section { background: rgba(255,255,255,0.01); }
+.problem-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 800px; margin: 0 auto; }
+.problem-card {
+  background: rgba(239,68,68,0.05); border: 1px solid rgba(239,68,68,0.15);
+  border-radius: 12px; padding: 1.5rem; display: flex; gap: 1rem; align-items: flex-start;
+}
+.problem-card .num { color: #ef4444; font-weight: 800; font-size: 1.5rem; }
+.problem-card h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.25rem; }
+.problem-card p { color: #94a3b8; font-size: 0.85rem; }
+
+/* Pricing */
+.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: 1000px; margin: 0 auto; }
+.price-card {
+  background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 16px; padding: 2rem; transition: transform 0.3s;
+}
+.price-card.popular { border-color: #2dd4bf; background: linear-gradient(135deg, rgba(45,212,191,0.08), rgba(74,222,128,0.04)); transform: scale(1.03); }
+.price-card:hover { transform: translateY(-4px); }
+.price-card.popular:hover { transform: scale(1.03) translateY(-4px); }
+.price-card .plan { font-weight: 700; font-size: 0.85rem; color: #2dd4bf; text-transform: uppercase; letter-spacing: 0.1em; }
+.price-card .cost { font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 900; margin: 0.5rem 0 1rem; }
+.price-card ul { list-style: none; margin-bottom: 1.5rem; }
+.price-card li { padding: 0.3rem 0; font-size: 0.85rem; color: #94a3b8; }
+.price-card li::before { content: "• "; color: #2dd4bf; font-weight: 800; }
+
+/* CTA Section */
+.cta-section {
+  text-align: center; padding: 100px 20px;
+  background: radial-gradient(ellipse at 50% 100%, rgba(45,212,191,0.06), transparent 60%);
+}
+.cta-section h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; margin-bottom: 1rem; }
+.cta-section h2 .gradient { background: linear-gradient(135deg, #2dd4bf, #4ade80); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.cta-section p { color: #94a3b8; font-size: 1.1rem; margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto; }
+
+/* Footer */
+footer {
+  padding: 2rem; border-top: 1px solid rgba(255,255,255,0.05); text-align: center;
+}
+footer .links { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-bottom: 1rem; }
+footer .links a { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 999px; padding: 6px 16px; color: #94a3b8; font-size: 0.75rem; font-weight: 600; transition: border-color 0.2s, color 0.2s; }
+footer .links a:hover { border-color: #2dd4bf; color: #fff; }
+footer .copy { color: #334155; font-size: 0.7rem; }
+
+@media (max-width: 768px) {
+  nav .nav-links { display: none; }
+  .features-grid, .pricing-grid, .problem-grid { grid-template-columns: 1fr; }
+  .price-card.popular { transform: none; }
+  .hero { padding: 100px 16px 60px; }
+  .section { padding: 60px 16px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo"><span>Шина</span> CRM</div>
+  <div class="nav-links">
+    <a href="#problem">Проблема</a>
+    <a href="#features">Возможности</a>
+    <a href="#pricing">Тарифы</a>
+    <a href="https://vk.ru/milanium68">О нас</a>
+  </div>
+  <a href="https://velocentr-crm-pmv2qqdgeubx6bdw7tfpjb.streamlit.app/" class="cta-nav">Попробовать бесплатно</a>
+</nav>
+
+<section class="hero">
+  <div class="badge">Бесплатно 7 дней</div>
+  <h1>Хватит терять клиентов.<br><span class="gradient">Начните контролировать бизнес.</span></h1>
+  <p class="subtitle">CRM-система с интеграциями, заточенная под велобизнес. Склад, клиенты, задачи — всё в браузере.</p>
+  <div class="ctas">
+    <a href="https://velocentr-crm-pmv2qqdgeubx6bdw7tfpjb.streamlit.app/" class="btn-primary">Попробовать бесплатно &rarr;</a>
+    <a href="#pricing" class="btn-secondary">Посмотреть тарифы</a>
+  </div>
+  <p class="meta">Логин: velocentr · Пароль: demo</p>
+</section>
+
+<section class="section problem-section" id="problem">
+  <h2 class="section-title"><span class="gradient">Знакомо?</span></h2>
+  <p class="section-sub">Вот с чем сталкиваются веломагазины каждый день</p>
+  <div class="problem-grid">
+    <div class="problem-card animate">
+      <div class="num">01</div>
+      <div><h4>Записи в тетрадке</h4><p>Менеджер записал клиента и потерял. Найти нужную запись невозможно.</p></div>
+    </div>
+    <div class="problem-card animate animate-delay-1">
+      <div class="num">02</div>
+      <div><h4>Теряются заявки</h4><p>Клиент звонил, а менеджер не помнит о чём договаривались.</p></div>
+    </div>
+    <div class="problem-card animate animate-delay-2">
+      <div class="num">03</div>
+      <div><h4>Склад не контролируется</h4><p>Товар есть на складе, но продавец не знает. Или наоборот.</p></div>
+    </div>
+    <div class="problem-card animate animate-delay-3">
+      <div class="num">04</div>
+      <div><h4>Нет аналитики</h4><p>Сколько продано? Какая прибыль? Какие товары скидывать? Ответов нет.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="features">
+  <h2 class="section-title"><span class="gradient">Всё под контролем</span></h2>
+  <p class="section-sub">Одна ссылка — и весь бизнес перед глазами</p>
+  <div class="features-grid">
+    <div class="feature-card animate">
+      <div class="icon">📦</div>
+      <h3>Учёт склада</h3>
+      <p>Товары, цены, остатки, себестоимость. Экспорт в Excel одним кликом.</p>
+    </div>
+    <div class="feature-card animate animate-delay-1">
+      <div class="icon">👥</div>
+      <h3>База клиентов</h3>
+      <p>Имя, телефон, история звонков, задачи по каждому клиенту.</p>
+    </div>
+    <div class="feature-card animate animate-delay-2">
+      <div class="icon">📝</div>
+      <h3>Задачи</h3>
+      <p>Kanban-доска: задача, клиент, срок, статус. Ничего не забывается.</p>
+    </div>
+    <div class="feature-card animate animate-delay-3">
+      <div class="icon">📞</div>
+      <h3>Журнал звонков</h3>
+      <p>Каждый звонок записан: дата, результат, заметка.</p>
+    </div>
+    <div class="feature-card animate animate-delay-4">
+      <div class="icon">📊</div>
+      <h3>Аналитика</h3>
+      <p>Дашборд: прибыль, остатки по категориям, ABC-анализ товаров.</p>
+    </div>
+    <div class="feature-card animate animate-delay-5">
+      <div class="icon">🔧</div>
+      <h3>Интеграции</h3>
+      <p>1С, Яндекс Маркет, сайты, телефония — всё подключаем.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="pricing">
+  <h2 class="section-title"><span class="gradient">Тарифы</span></h2>
+  <p class="section-sub">Выберите удобный план</p>
+  <div class="pricing-grid">
+    <div class="price-card animate">
+      <div class="plan">Демо</div>
+      <div class="cost">0 ₽</div>
+      <ul>
+        <li>7 дней полного доступа</li>
+        <li>Все функции</li>
+        <li>В браузере</li>
+        <li>Без обязательств</li>
+      </ul>
+      <a href="https://velocentr-crm-pmv2qqdgeubx6bdw7tfpjb.streamlit.app/" class="btn-primary" style="display:block;text-align:center;">Попробовать</a>
+    </div>
+    <div class="price-card popular animate animate-delay-1">
+      <div class="plan">Подписка</div>
+      <div class="cost">4 900 ₽/мес</div>
+      <ul>
+        <li>Своя ссылка для магазина</li>
+        <li>С любого устройства</li>
+        <li>Обновления и поддержка</li>
+        <li>Блокировка при неоплате</li>
+      </ul>
+      <a href="https://velocentr-crm-pmv2qqdgeubx6bdw7tfpjb.streamlit.app/" class="btn-primary" style="display:block;text-align:center;">Выбрать</a>
+    </div>
+    <div class="price-card animate animate-delay-2">
+      <div class="plan">Установка</div>
+      <div class="cost">38 000 ₽</div>
+      <ul>
+        <li>На ваш ПК</li>
+        <li>Навсегда ваша</li>
+        <li>Без интернета</li>
+        <li>1 рабочее место</li>
+      </ul>
+      <a href="https://velocentr-crm-pmv2qqdgeubx6bdw7tfpjb.streamlit.app/" class="btn-primary" style="display:block;text-align:center;">Подробнее</a>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <h2><span class="gradient">Попробуйте бесплатно</span></h2>
+  <p>Откройте ссылку, войдите — и начните работать через 5 минут.</p>
+  <a href="https://velocentr-crm-pmv2qqdgeubx6bdw7tfpjb.streamlit.app/" class="btn-primary">Открыть CRM &rarr;</a>
+  <p class="meta" style="margin-top:1rem;">Логин: velocentr · Пароль: demo</p>
+</section>
+
+<footer>
+  <div class="links">
+    <a href="https://velocentr-crm-pmv2qqdgeubx6bdw7tfpjb.streamlit.app/">Открыть CRM</a>
+    <a href="https://vk.ru/milanium68">Мы ВКонтакте</a>
+    <a href="tel:+79227028888">+7 (922) 702-88-88</a>
+  </div>
+  <p class="copy">Шина CRM — разработка студии Миланиум, Тамбов · 2026</p>
+</footer>
+
+<script>
+// Intersection Observer for scroll animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.animate').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
