@@ -22,7 +22,7 @@ DEFAULT_CATEGORIES = ["Велосипеды", "Электротранспорт"
 TASK_STATUSES = ["Новая", "В работе", "Ожидает ответа", "Завершена", "Отменена"]
 DONE_STATUSES = {"Завершена", "Отменена"}
 CALL_RESULTS = ["Не дозвонился", "Перезвонить", "Назначена встреча", "Оформлен заказ", "Консультация", "Отказ", "Другое"]
-SHOP_NAME = "Велоцентр"
+SHOP_NAME = "Велотяга"
 SHOP_PHONE = "+7 (920) 497-47-87"
 SHOP_ADDRESS = "Магистральная ул., 1Б, Тамбов"
 
@@ -1152,10 +1152,10 @@ def demo_blocked_screen():
     with col2:
         st.markdown(f"""
         ### Свяжитесь с нами
-        **ВелоЦентр**
+        **Велотяга**
         - Телефон: **{SHOP_PHONE}**
         - Адрес: **{SHOP_ADDRESS}**
-        - Сайт: запустите ВелоЦентр у себя в магазине!
+        - Сайт: запустите Велотяга у себя в магазине!
         """)
         st.markdown("---")
         st.markdown("""
@@ -1174,7 +1174,7 @@ def login_screen():
         demo_blocked_screen()
         return
 
-    st.title("ВелоЦентр")
+    st.title("Велотяга")
     if days_left <= 2:
         st.warning(f"Демо-доступ истекает через {days_left} дн. Сохраните данные и свяжитесь с нами для покупки полной версии.")
     st.markdown("### Склад и CRM — вход для администратора")
@@ -1259,13 +1259,13 @@ def settings_section():
     st.markdown("### О системе")
     st.write(f"**{SHOP_NAME}** · Тамбов")
     st.write(f"{SHOP_PHONE} · {SHOP_ADDRESS}")
-    st.write("Версия 1.3 · ВелоЦентр — склад, клиенты, задачи, звонки и аналитика для веломагазина.")
+    st.write("Версия 1.3 · Велотяга — склад, клиенты, задачи, звонки и аналитика для веломагазина.")
 
 
 # --- 11. ГЛАВНОЕ ПРИЛОЖЕНИЕ ---
 
 def inject_styles():
-    """Единый фирменный стиль ВелоЦентр + тёмная тема + мобильная адаптация."""
+    """Единый фирменный стиль Велотяга + тёмная тема + мобильная адаптация."""
     dark = st.session_state.get("dark_theme", False)
     if dark:
         bg, bg2, txt, txt2 = "#0f172a", "#1e293b", "#e2e8f0", "#94a3b8"
@@ -1447,7 +1447,7 @@ def render_sidebar():
     """Боковая панель — лого по центру, демо-таймер, меню, выход."""
     st.sidebar.markdown("""
     <div style="text-align:center; padding:10px 0 4px 0;">
-        <span style="font-size:1.1rem; font-weight:800; color:#f8fafc;">ВелоЦентр</span>
+        <span style="font-size:1.1rem; font-weight:800; color:#f8fafc;">Велотяга</span>
     </div>
     """, unsafe_allow_html=True)
 
@@ -1605,9 +1605,9 @@ def render_quick_add():
         st.rerun()
 
 
-# ВелоЦентр CRM v1.4
+# Велотяга CRM v1.4
 def main():
-    st.set_page_config(page_title="ВелоЦентр: склад и CRM", page_icon="🚲", layout="wide")
+    st.set_page_config(page_title="Велотяга: склад и CRM", page_icon="🚲", layout="wide")
     load_data()
     inject_styles()
 

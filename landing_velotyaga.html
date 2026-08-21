@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Велотяга — CRM, сайты и карты для веломагазина</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+        :root {
+            --bg: #0b1220;
+            --panel: rgba(255,255,255,0.05);
+            --border: rgba(255,255,255,0.08);
+            --primary: #2dd4bf;
+            --text: #e2e8f0;
+            --muted: #94a3b8;
+            --gradient: linear-gradient(135deg, #2dd4bf, #4ade80);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: var(--bg); color: var(--text); font-family: 'Inter', 'Segoe UI', sans-serif; }
+        a { color: var(--primary); text-decoration: none; }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 20px;
+            background:
+                linear-gradient(180deg, rgba(11,18,32,0.7) 0%, rgba(11,18,32,0.95) 100%),
+                url('https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=1400&q=80') center/cover no-repeat;
+        }
+
+        .section {
+            padding: 80px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .section:nth-child(even) { background: rgba(255,255,255,0.015); }
+
+        .eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--primary); margin-bottom: 10px; }
+        .section-title { font-size: clamp(24px, 4vw, 42px); font-weight: 900; line-height: 1.15; margin-bottom: 16px; max-width: 700px; }
+        .section-title span { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .lead { font-size: 16px; color: var(--muted); line-height: 1.6; max-width: 600px; margin-bottom: 30px; }
+
+        .cta-btn {
+            display: inline-block;
+            background: var(--gradient);
+            color: #0b1220;
+            font-size: 15px;
+            font-weight: 800;
+            padding: 12px 32px;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(45,212,191,0.3); }
+        .cta-sub { color: var(--muted); font-size: 12px; margin-top: 10px; }
+
+        .badge { display: inline-block; background: rgba(45,212,191,0.12); color: var(--primary); border: 1px solid rgba(45,212,191,0.3); border-radius: 999px; padding: 5px 14px; font-size: 12px; font-weight: 700; margin-bottom: 16px; }
+
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 900px; width: 100%; margin-bottom: 30px; }
+        .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; max-width: 700px; width: 100%; margin-bottom: 30px; }
+
+        .card { background: var(--panel); border: 1px solid var(--border); border-radius: 14px; padding: 22px 20px; text-align: left; }
+        .card h3 { font-size: 15px; font-weight: 700; margin-bottom: 5px; }
+        .card p { font-size: 13px; color: var(--muted); line-height: 1.4; }
+
+        .price-card { background: var(--panel); border: 1px solid var(--border); border-radius: 14px; padding: 22px 20px; text-align: left; }
+        .price-card.popular { border-color: var(--primary); background: linear-gradient(135deg, rgba(45,212,191,0.1), rgba(74,222,128,0.05)); transform: scale(1.02); }
+        .price-card .plan { font-weight: 800; font-size: 14px; color: var(--primary); }
+        .price-card .cost { font-size: clamp(22px, 3vw, 30px); font-weight: 900; margin: 6px 0 12px; }
+        .price-card ul { list-style: none; }
+        .price-card li { padding: 3px 0; font-size: 13px; color: var(--muted); }
+        .price-card li::before { content: "• "; color: var(--primary); font-weight: 800; }
+
+        .offline-banner {
+            background: linear-gradient(135deg, rgba(251,191,36,0.08), rgba(245,158,11,0.03));
+            border: 1px solid rgba(251,191,36,0.2);
+            border-radius: 14px;
+            padding: 30px;
+            max-width: 700px;
+            width: 100%;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .offline-banner h3 { font-size: 20px; font-weight: 800; margin-bottom: 10px; color: #fbbf24; }
+        .offline-banner p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+        .addon-link {
+            display: inline-block;
+            margin-top: 12px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--primary);
+            border: 1px solid rgba(45,212,191,0.3);
+            border-radius: 8px;
+            padding: 8px 20px;
+            transition: background 0.2s;
+        }
+        .addon-link:hover { background: rgba(45,212,191,0.1); }
+
+        .footer {
+            padding: 30px 20px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+        .footer-links { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-bottom: 12px; }
+        .footer-links a { display: inline-block; background: var(--panel); border: 1px solid var(--border); border-radius: 999px; padding: 6px 16px; color: var(--text); font-size: 12px; font-weight: 600; }
+        .footer-copy { color: var(--muted); font-size: 11px; }
+
+        @media (max-width: 768px) {
+            .grid-3, .grid-2 { grid-template-columns: 1fr; }
+            .price-card.popular { transform: none; }
+            .hero { padding: 40px 16px; }
+            .section { padding: 50px 16px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+    <span class="badge">Бесплатно 7 дней</span>
+    <h1 style="font-size:clamp(40px,7vw,72px);font-weight:900;margin-bottom:12px;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Велотяга</h1>
+    <p style="font-size:clamp(14px,2vw,18px);color:var(--text);margin-bottom:6px;font-weight:700;">Вытянет ваш бизнес на новый уровень</p>
+    <p class="lead">ИИ и веб-разработка — по-простому</p>
+    <a href="https://velocentr-crm-pmv2qqdgeubx6bdw7tfpjb.streamlit.app/" class="cta-btn">Попробовать бесплатно</a>
+    <p class="cta-sub">7 дней · Без карты · Без обязательств</p>
+</section>
+
+<!-- SECTION 1: CRM -->
+<section class="section">
+    <span class="eyebrow">CRM-система</span>
+    <h2 class="section-title"><span>Всё в одном приложении</span></h2>
+    <p class="lead">Склад, клиенты, задачи — заточено под велобизнес. Работает на телефоне и компьютере.</p>
+    <div class="grid-3">
+        <div class="card"><h3>Учёт склада</h3><p>Товары, цены, остатки, себестоимость. Экспорт в Excel.</p></div>
+        <div class="card"><h3>База клиентов</h3><p>Имя, телефон, история звонков, задачи.</p></div>
+        <div class="card"><h3>Задачи</h3><p>Kanban-доска с дедлайнами.</p></div>
+        <div class="card"><h3>Звонки</h3><p>Журнал: дата, результат, заметка.</p></div>
+        <div class="card"><h3>Аналитика</h3><p>Дашборд: прибыль, остатки, ABC-анализ.</p></div>
+        <div class="card"><h3>Работает оффлайн</h3><p>Локальная версия — без интернета, на вашем ПК.</p></div>
+    </div>
+    <a href="https://velocentr-crm-pmv2qqdgeubx6bdw7tfpjb.streamlit.app/" class="cta-btn">Попробовать бесплатно</a>
+    <p class="cta-sub">Ведите базу самостоятельно · Без лишних глаз · Для себя</p>
+</section>
+
+<!-- SECTION 2: Offline -->
+<section class="section">
+    <span class="eyebrow">Актуально</span>
+    <h2 class="section-title"><span>А что если нет интернета?</span></h2>
+    <div class="offline-banner">
+        <h3>Интернет исчезает. Ваш бизнес — нет.</h3>
+        <p>Провайдеры падают, блокировки, grey zones. А в маленьких городах стабильность интернета — 50 на 50.</p>
+        <p style="margin-top:12px;font-weight:700;color:var(--text);">Локальная версия = работает всегда. Ваши данные — без лишних глаз.</p>
+    </div>
+</section>
+
+<!-- SECTION 3: Sites (addon) -->
+<section class="section">
+    <span class="eyebrow">Дополнительно</span>
+    <h2 class="section-title"><span>Создаём продающие сайты</span></h2>
+    <p class="lead">Интернет-магазины, лендинги, каталоги — под ключ. С интеграцией CRM и аналитикой.</p>
+    <a href="https://миланиум.рф/сайты" class="addon-link">Подробнее о сайтах</a>
+</section>
+
+<!-- SECTION 4: Maps (addon) -->
+<section class="section">
+    <span class="eyebrow">Дополнительно</span>
+    <h2 class="section-title"><span>Заполняем Яндекс Карты и 2ГИС</span></h2>
+    <p class="lead">Фото, описание, режим работы. Привлекаем клиентов с карт и навигаторов.</p>
+    <a href="https://миланиум.рф/карты" class="addon-link">Подробнее о картах</a>
+</section>
+
+<!-- SECTION 5: Tariffs -->
+<section class="section">
+    <span class="eyebrow">Тарифы</span>
+    <h2 class="section-title"><span>Выберите удобный план</span></h2>
+    <div class="grid-3">
+        <div class="price-card">
+            <div class="plan">ДЕМО</div>
+            <div class="cost">0 ₽</div>
+            <ul>
+                <li>7 дней полного доступа</li>
+                <li>Все функции</li>
+                <li>В браузере</li>
+                <li>Без обязательств</li>
+            </ul>
+        </div>
+        <div class="price-card popular">
+            <div class="plan">ПОДПИСКА</div>
+            <div class="cost">4 900 ₽/мес</div>
+            <ul>
+                <li>Своя ссылка</li>
+                <li>С любого устройства</li>
+                <li>Обновления</li>
+                <li>Поддержка</li>
+            </ul>
+        </div>
+        <div class="price-card">
+            <div class="plan">УСТАНОВКА</div>
+            <div class="cost">38 000 ₽</div>
+            <ul>
+                <li>На ваш ПК</li>
+                <li>Навсегда</li>
+                <li>Без интернета</li>
+                <li>1 рабочее место</li>
+            </ul>
+        </div>
+    </div>
+    <div class="grid-2" style="max-width:500px;">
+        <div class="card"><h3>Доработка под запрос</h3><p>Адаптируем CRM под ваши бизнес-процессы. +8 000 ₽ от локальной версии.</p></div>
+        <div class="card"><h3>Сайт под ключ</h3><p>Лендинг, каталог, интернет-магазин. От 38 000 ₽.</p></div>
+    </div>
+    <a href="https://velocentr-crm-pmv2qqdgeubx6bdw7tfpjb.streamlit.app/" class="cta-btn">Выбрать тариф</a>
+</section>
+
+<!-- SECTION 6: CTA -->
+<section class="section">
+    <span class="eyebrow">Начните сегодня</span>
+    <h2 class="section-title"><span>Попробуйте бесплатно</span></h2>
+    <p class="lead">Откройте ссылку, войдите — и начните работать через 5 минут. Вводите базу самостоятельно. Без лишних глаз. Для себя.</p>
+    <a href="https://velocentr-crm-pmv2qqdgeubx6bdw7tfpjb.streamlit.app/" class="cta-btn">Открыть Велотягу</a>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-links">
+        <a href="https://миланиум.рф">Миланиум</a>
+        <a href="https://миланиум.рф/сайты">Сайты</a>
+        <a href="https://миланиум.рф/карты">Карты</a>
+        <a href="https://vk.ru/milanium68">ВКонтакте</a>
+        <a href="tel:+79227028888">+7 (922) 702-88-88</a>
+    </div>
+    <p class="footer-copy">Велотяга — разработка студии Миланиум, Тамбов · 2026</p>
+</footer>
+
+</body>
+</html>
